@@ -193,7 +193,7 @@ def main():
         f"• Transaction: {tx_hash.hex()[:20]}...\n"
         f"• Block: {receipt['blockNumber']}\n"
         f"• Explorer: cronos.org/testnet/tx/{tx_hash.hex()[:10]}...\n\n"
-        "[bold]Judges can verify this on-chain! 🚀[/bold]",
+        "[bold]Verifiable on-chain![/bold]",
         border_style="green",
         padding=(1, 2)
     ))

@@ -144,7 +144,7 @@ def main():
         "[yellow]Multi-Chain Security:[/yellow]\n"
         "• Cronos: Real TCRO transactions ✅\n"
         "• Base Sepolia: Honeypot detection ✅\n\n"
-        "[bold]AgentShield works across multiple chains! 🚀[/bold]",
+        "[bold]Multi-chain protection![/bold]",
         border_style="green",
         padding=(1, 2)
     ))

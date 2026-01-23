@@ -218,8 +218,7 @@ def show_summary():
         "• Prompt injection attacks\n"
         "• Excessive transfers\n"
         "• Malicious addresses\n"
-        "• Rapid draining attempts\n\n"
-        "[bold]Ready for hackathon! 🚀[/bold]",
+        "• Rapid draining attempts",
         border_style="green",
         padding=(1, 2)
     ))

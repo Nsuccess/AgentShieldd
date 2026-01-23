@@ -341,7 +341,7 @@ def show_summary():
         "• Honeypot tokens\n"
         "• Token draining attacks\n"
         "• Malicious contracts\n\n"
-        f"[bold]Powered by Groq ({GROQ_MODEL}) - 560+ tokens/sec! 🚀[/bold]",
+        f"[bold]Powered by Groq ({GROQ_MODEL}) - 560+ tokens/sec![/bold]",
         border_style="green",
         padding=(1, 2)
     ))
