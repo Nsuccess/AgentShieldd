@@ -47,8 +47,8 @@ jobs:
 
     - name: Verify package installation
       run: |
-        python -c "import agentarc; print(f'AgentArc version: {agentarc.__version__ if hasattr(agentarc, \"__version__\") else \"unknown\"}')"
-        agentarc --help
+        python -c "import agentshield; print(f'AgentShield version: {agentshield.__version__ if hasattr(agentshield, \"__version__\") else \"unknown\"}')"
+        agentshield --help
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
