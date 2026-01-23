@@ -30,13 +30,13 @@ AI agents can move funds at machine speed, but they're vulnerable:
 
 ```bash
 # Run all 4 demos automatically
-.\run_all_demos.ps1
+.\scripts\run_all_demos.ps1
 
 # Or run manually
-python execute_real_transaction.py    # Demo 1: Real TCRO transfer (30s)
-python crypto_com_sdk_demo.py          # Demo 2: Crypto.com SDK (45s)
-python policy_blocking.py              # Demo 3: Policy enforcement (45s)
-python honeypot_detection.py           # Demo 4: Honeypot detection (30s)
+python demos/execute_real_transaction.py    # Demo 1: Real TCRO transfer (30s)
+python demos/crypto_com_sdk_demo.py          # Demo 2: Crypto.com SDK (45s)
+python demos/policy_blocking.py              # Demo 3: Policy enforcement (45s)
+python demos/honeypot_detection.py           # Demo 4: Honeypot detection (30s)
 ```
 
 ### Installation
@@ -283,21 +283,23 @@ agentshield/
 │   └── rules/                  # Policy validators
 │       └── validators.py
 ├── agentshield-api/            # REST API server
-├── examples/                   # Usage examples
+├── demos/                      # Demo scripts
+│   ├── execute_real_transaction.py  # Demo 1: Real execution
+│   ├── crypto_com_sdk_demo.py       # Demo 2: Crypto.com SDK
+│   ├── policy_blocking.py           # Demo 3: Policy enforcement
+│   ├── honeypot_detection.py        # Demo 4: Honeypot detection
+│   └── suspicious_detection.py      # Demo 5: LLM threat detection
+├── examples/                   # Integration examples
 │   ├── autonomous-portfolio-agent/
 │   ├── cronos-risk-managed-agent/
 │   └── onchain-agent/
+├── scripts/                    # Utility scripts
+│   ├── run_all_demos.ps1       # Run all demos (PowerShell)
+│   └── run_all_demos.bat       # Run all demos (CMD)
 ├── tests/                      # Test suite
-├── execute_real_transaction.py # Demo 1
-├── crypto_com_sdk_demo.py      # Demo 2
-├── policy_blocking.py          # Demo 3
-├── honeypot_detection.py       # Demo 4
-├── suspicious_detection.py     # Demo 5
-├── run_all_demos.ps1           # Run all demos (PowerShell)
-├── run_all_demos.bat           # Run all demos (CMD)
 ├── README.md                   # This file
 ├── START_HERE.md               # Quick start guide
-├└── pyproject.toml              # Package configuration
+└── pyproject.toml              # Package configuration
 ```
 
 ---
