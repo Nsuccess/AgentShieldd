@@ -358,8 +358,9 @@ agentshield/
 PRIVATE_KEY=your_private_key
 WALLET_ADDRESS=your_wallet_address
 
-# Groq LLM (for AI threat detection)
+# Groq LLM (required for Demo 5: LLM threat detection)
 GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.1-8b-instant  # Optional, defaults to llama-3.1-8b-instant
 
 # Tenderly (optional - for advanced simulation)
 TENDERLY_ACCESS_KEY=your_tenderly_key
