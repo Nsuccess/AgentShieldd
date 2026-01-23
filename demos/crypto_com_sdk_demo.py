@@ -227,7 +227,7 @@ def show_use_cases():
 
 def show_summary():
     console.print(Panel.fit(
-        "[bold green]✅ CRYPTO.COM SDK DEMO COMPLETE![/bold green]\n\n"
+        "[bold green]✅ CRYPTO.COM SDK INTEGRATION COMPLETE![/bold green]\n\n"
         "[cyan]What We Showed:[/cyan]\n"
         "• Natural language → Blockchain execution\n"
         "• Crypto.com AI Agent SDK integration\n"

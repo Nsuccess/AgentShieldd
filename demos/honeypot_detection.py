@@ -31,7 +31,7 @@ ERC20_ABI = [
 def print_header():
     console.print("\n")
     console.print(Panel.fit(
-        "[bold red]🍯 Honeypot Detection Demo - Base Sepolia 🍯[/bold red]\n\n"
+        "[bold red]🍯 Honeypot Detection - Base Sepolia 🍯[/bold red]\n\n"
         "[yellow]AgentShield detecting REAL honeypot token[/yellow]\n\n"
         "[dim]Multi-chain security: Cronos + Base Sepolia[/dim]",
         border_style="red",

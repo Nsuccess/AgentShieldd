@@ -43,7 +43,7 @@ ERC20_ABI = [
 def print_header():
     console.print("\n")
     console.print(Panel.fit(
-        "[bold cyan]🛡️ AgentShield + Cronos REAL Transaction Demo 🛡️[/bold cyan]\n\n"
+        "[bold cyan]🛡️ AgentShield + Cronos REAL Transaction 🛡️[/bold cyan]\n\n"
         "[yellow]Executing REAL transactions on Cronos Testnet[/yellow]\n\n"
         "[dim]Verifiable on blockchain explorer[/dim]",
         border_style="cyan",
@@ -183,7 +183,7 @@ def main():
     
     # Show summary
     console.print(Panel.fit(
-        "[bold green]✅ DEMO COMPLETE![/bold green]\n\n"
+        "[bold green]✅ TRANSACTION COMPLETE![/bold green]\n\n"
         "[cyan]What Just Happened:[/cyan]\n"
         "• AgentShield validated transaction (4 stages)\n"
         "• REAL transaction executed on Cronos testnet\n"

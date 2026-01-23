@@ -30,7 +30,7 @@ RECIPIENT = Web3.to_checksum_address("0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0
 def print_header():
     console.print("\n")
     console.print(Panel.fit(
-        "[bold red]🚫 AgentShield Policy Violation Demo 🚫[/bold red]\n\n"
+        "[bold red]🚫 AgentShield Policy Violation 🚫[/bold red]\n\n"
         "[yellow]Showing AgentShield BLOCKING malicious transactions[/yellow]\n\n"
         "[dim]Protection in action on Cronos Testnet[/dim]",
         border_style="red",
@@ -202,7 +202,7 @@ def show_comparison():
 
 def show_summary():
     console.print(Panel.fit(
-        "[bold green]✅ POLICY PROTECTION DEMO COMPLETE![/bold green]\n\n"
+        "[bold green]✅ POLICY PROTECTION COMPLETE![/bold green]\n\n"
         "[cyan]AgentShield Blocked:[/cyan]\n"
         "• Excessive transfer (100 TCRO > 1 TCRO limit)\n"
         "• Denied address (null address)\n"
