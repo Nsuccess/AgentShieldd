@@ -156,7 +156,8 @@ def demo_natural_language_to_blockchain():
             console.print()
             
             console.print(f"[bold cyan]🔗 VERIFY ON EXPLORER:[/bold cyan]")
-            console.print(f"[cyan]https://explorer.cronos.org/testnet/tx/{tx_hash.hex()}[/cyan]\n")
+            console.print(f"[cyan]https://explorer.cronos.org/testnet/tx/{tx_hash.hex()}[/cyan]")
+            console.print(f"\n[bold green]✅ REAL TRANSACTION - VERIFIABLE ON-CHAIN![/bold green]\n")
         else:
             console.print("[red]❌ Transaction failed![/red]\n")
             

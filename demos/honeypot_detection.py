@@ -150,7 +150,8 @@ def main():
     ))
     
     console.print(f"\n[dim]Honeypot: {HONEYPOT_TOKEN}[/dim]")
-    console.print(f"[dim]Explorer: https://sepolia.basescan.org/address/{HONEYPOT_TOKEN}[/dim]\n")
+    console.print(f"[dim]Explorer: https://sepolia.basescan.org/address/{HONEYPOT_TOKEN}[/dim]")
+    console.print(f"\n[bold green]✅ REAL HONEYPOT CONTRACT - VERIFIABLE ON BASE SEPOLIA![/bold green]\n")
 
 
 if __name__ == "__main__":

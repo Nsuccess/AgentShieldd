@@ -356,7 +356,13 @@ def main():
     show_summary()
     
     console.print(f"\n[dim]Wallet: {WALLET_ADDRESS}[/dim]")
-    console.print(f"[dim]Network: Cronos Testnet (Chain ID: {CHAIN_ID})[/dim]\n")
+    console.print(f"[dim]Network: Cronos Testnet (Chain ID: {CHAIN_ID})[/dim]")
+    
+    if groq_client:
+        console.print(f"\n[bold green]✅ REAL GROQ LLM ANALYSIS - VERIFIABLE API CALLS![/bold green]")
+        console.print(f"[dim]Model: {GROQ_MODEL} | Provider: Groq[/dim]\n")
+    else:
+        console.print(f"\n[yellow]⚠️  Add GROQ_API_KEY to .env for REAL LLM analysis[/yellow]\n")
 
 
 if __name__ == "__main__":

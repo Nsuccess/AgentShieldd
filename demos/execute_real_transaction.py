@@ -199,7 +199,8 @@ def main():
     ))
     
     console.print(f"\n[bold cyan]🔗 VERIFY ON EXPLORER:[/bold cyan]")
-    console.print(f"[cyan]https://explorer.cronos.org/testnet/tx/{tx_hash.hex()}[/cyan]\n")
+    console.print(f"[cyan]https://explorer.cronos.org/testnet/tx/{tx_hash.hex()}[/cyan]")
+    console.print(f"\n[bold green]✅ REAL TRANSACTION - VERIFIABLE ON-CHAIN![/bold green]\n")
 
 
 if __name__ == "__main__":
