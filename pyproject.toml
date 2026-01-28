@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [
-    {name = "Success", email = "successnwachukwu368@gmail.com"}
+    {name = "Success Nwachukwu", email = "successnwachukwu368@gmail.com"}
 ]
 keywords = ["agent", "security", "policy", "ai", "validation", "agentkit"]
 classifiers = [
@@ -47,9 +47,9 @@ dev = [
 agentshield = "agentshield.__main__:cli"
 
 [project.urls]
-Homepage = "https://github.com/galaar-org/AgentShield"
-Repository = "https://github.com/galaar-org/AgentShield"
-Issues = "https://github.com/galaar-org/AgentShield/issues"
+Homepage = "https://github.com/Nsuccess/AgentShieldd"
+Repository = "https://github.com/Nsuccess/AgentShieldd"
+Issues = "https://github.com/Nsuccess/AgentShieldd/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
