@@ -1,11 +1,22 @@
 """
 AgentShield Facilitator Wrappers
-Adds 4-stage validation to x402 payment flows
+Adds 4-stage validation to payment flows
 """
 
 from typing import Optional, Dict, Any
-from AgentShield.policy_engine import PolicyEngine
-from AgentShield.facilitators.cronos_facilitator import CronosFacilitator, generate_payment_header
+
+# Import facilitators
+try:
+    from .cronos_facilitator import CronosFacilitator, generate_payment_header
+    HAS_CRONOS = True
+except ImportError:
+    HAS_CRONOS = False
+
+try:
+    from .kite_facilitator import KiteFacilitator, create_kite_facilitator
+    HAS_KITE = True
+except ImportError:
+    HAS_KITE = False
 
 
 class SafeFacilitator:
@@ -190,7 +201,11 @@ class SafeFacilitator:
 
 # Export main classes and functions
 __all__ = [
-    "CronosFacilitator",
     "SafeFacilitator",
-    "generate_payment_header",
 ]
+
+if HAS_CRONOS:
+    __all__.extend(["CronosFacilitator", "generate_payment_header"])
+
+if HAS_KITE:
+    __all__.extend(["KiteFacilitator", "create_kite_facilitator"])

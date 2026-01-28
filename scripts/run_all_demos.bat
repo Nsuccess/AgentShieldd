@@ -1,44 +1,39 @@
 @echo off
-REM AgentShield - Run All Demos
-REM This script runs all 4 demos sequentially
+REM AgentShield - Run All Kite AI Examples
+REM This script runs all 3 Kite AI examples sequentially
 
 echo.
 echo ========================================
-echo AgentShield - Demo Runner
+echo AgentShield - Kite AI Security Suite
 echo ========================================
 echo.
-echo Running all 4 demos...
-echo Total time: ~2.5 minutes
+echo Running all 3 security examples...
+echo Total time: ~2 minutes
 echo.
 
 echo.
 echo ========================================
-echo Demo 1: Real Transaction Execution
+echo Example 1: Security Validation Suite
 echo ========================================
-python demos/execute_real_transaction.py
+python demos/security_validation_suite.py
 
 echo.
 echo ========================================
-echo Demo 2: Crypto.com SDK Integration
+echo Example 2: Protected Transaction Execution
 echo ========================================
-python demos/crypto_com_sdk_demo.py
+python demos/execute_protected_transaction.py
 
 echo.
 echo ========================================
-echo Demo 3: Policy-Based Blocking
+echo Example 3: Autonomous Payment Flow
 echo ========================================
-python demos/policy_blocking.py
+python demos/autonomous_payment_flow.py
 
 echo.
 echo ========================================
-echo Demo 4: Honeypot Detection
-echo ========================================
-python demos/honeypot_detection.py
-
-echo.
-echo ========================================
-echo All demos completed!
+echo All security examples completed!
 echo ========================================
 echo.
 
 pause
+

@@ -1,509 +1,342 @@
-# 🛡️ AgentShield - Security Layer for AI Agents on Cronos
+# 🛡️ AgentShield
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Cronos](https://img.shields.io/badge/Cronos-x402-blue.svg)](https://cronos.org)
+**Production-Ready Security Layer for Autonomous Agent Payments on Kite AI Chain**
 
-**AgentShield makes every transaction prove it's safe before it's signed.**
-
-Multi-stage security validation for AI agents: Policy enforcement → Transaction simulation → Honeypot detection → LLM threat analysis.
+[![Demo Video](https://img.shields.io/badge/Demo-Video-red?style=for-the-badge&logo=youtube)](https://youtu.be/J03qnUu6dDM)
+[![Kite AI](https://img.shields.io/badge/Kite_AI-Testnet-green?style=for-the-badge)](https://testnet.gokite.ai/)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 ---
 
-## 🎯 The Problem
+## 🎯 Overview
 
-AI agents can move funds at machine speed, but they're vulnerable:
-- 🎣 Exploited through prompt manipulation
-- 💣 Malicious contracts (honeypots, phishing)
-- 🤖 Misinterpret intent or hallucinate actions
-- 💸 Losses are immediate and irreversible
+AgentShield is a security validation system for autonomous agent payments on Kite AI Chain. It validates every transaction through a 4-stage pipeline and blocks malicious transactions **before signature**, ensuring funds are always safe.
 
-**Without AgentShield:** Bad approvals and honeypot trades broadcast immediately and become irreversible.
+### Key Features
 
-**With AgentShield:** Simulate first, inspect real effects, then enforce a hard block before signature.
+- ✅ **4-Stage Validation Pipeline** - Intent Judge → Policy Validation → Pre-Execution → Risk Analysis
+- ✅ **Policy Enforcement** - Spending limits, address denylists, gas limits
+- ✅ **Real-Time Simulation** - Test transactions before execution
+- ✅ **Attack Prevention** - Blocks prompt injection, excessive amounts, malicious addresses
+- ✅ **Autonomous Payments** - Secure agent-to-agent transactions
+- ✅ **Drop-in Integration** - 3 lines of code to add security
 
 ---
 
 ## 🚀 Quick Start
 
-### Run the Demos (4 minutes)
-
-```bash
-# Run all 5 demos automatically
-.\scripts\run_all_demos.ps1
-
-# Or run manually
-python demos/execute_real_transaction.py    # Demo 1: Real TCRO transfer (30s)
-python demos/crypto_com_sdk_demo.py          # Demo 2: Crypto.com SDK (45s)
-python demos/policy_blocking.py              # Demo 3: Policy enforcement (45s)
-python demos/honeypot_detection.py           # Demo 4: Honeypot detection (30s)
-python demos/suspicious_detection.py         # Demo 5: LLM threat detection (60s)
-```
-
 ### Installation
 
 ```bash
-# Install from source
-git clone https://github.com/your-org/agentshield.git
-cd agentshield
-pip install -e .
+# Clone repository
+git clone https://github.com/Nsuccess/AgentShield.git
+cd AgentShield
 
 # Install dependencies
-pip install web3 python-dotenv rich groq crypto-com-ai-agent-client
+pip install -r requirements.txt
+
+# Configure environment
+cp .env.example .env
+# Add your Kite AI wallet credentials to .env
 ```
 
-### Integration (3 Lines of Code)
+### Run Security Validation
+
+```bash
+# Run complete security validation suite
+python demos/security_validation_suite.py
+
+# Or run all examples
+.\scripts\run_all_demos.ps1  # Windows PowerShell
+```
+
+---
+
+## 🎬 Demo Video
+
+Watch AgentShield in action: **[Demo Video](https://youtu.be/J03qnUu6dDM)**
+
+The demo shows:
+- ✅ Real transaction execution on Kite AI testnet
+- ✅ Blocking excessive amount (100 KITE)
+- ✅ Blocking null address (burn prevention)
+- ✅ Blocking prompt injection attack
+- ✅ Autonomous agent-to-agent payment
+
+---
+
+## 🛡️ How It Works
+
+### 4-Stage Validation Pipeline
+
+```
+AI Agent Request
+      ↓
+┌─────────────────────┐
+│ Stage 1: Intent     │ ← Parse transaction intent
+│ Judge               │
+└─────────────────────┘
+      ↓
+┌─────────────────────┐
+│ Stage 2: Policy     │ ← Check spending limits, address lists
+│ Validation          │
+└─────────────────────┘
+      ↓
+┌─────────────────────┐
+│ Stage 3: Pre-       │ ← Simulate transaction
+│ Execution           │
+└─────────────────────┘
+      ↓
+┌─────────────────────┐
+│ Stage 4: Risk       │ ← AI-powered threat detection
+│ Analysis            │
+└─────────────────────┘
+      ↓
+   APPROVED ✅ or BLOCKED 🚫
+      ↓
+  Sign & Execute (if approved)
+```
+
+### Security Features
+
+**Policy Enforcement:**
+- Spending limits per transaction
+- Address allowlists/denylists
+- Gas limit controls
+- Rate limiting
+
+**Attack Prevention:**
+- Prompt injection detection
+- Null address blocking
+- Excessive amount blocking
+- Malicious contract detection
+
+---
+
+## 📊 Proven Results
+
+### Real Transactions on Kite AI Testnet
+
+**Security Validation Suite:**
+- TX: `0xcaf35dbbb2d326896dd85df08c6831ec06d13b915ca949b48b5a252e7560e911`
+- Block: 19584019
+- Status: ✅ CONFIRMED
+
+**Protected Transaction:**
+- TX: `0x2d9e7652879753aea1ee328cbdc633e039813c2951cbdd3076dc5e71d1b776d4`
+- Block: 19563670
+- Status: ✅ CONFIRMED
+
+**Autonomous Payment:**
+- TX: `0x3ce2d540805b50b3d0185147bec0e0a82f395395f3120f48d417cda5ebfd5371`
+- Status: ✅ CONFIRMED
+
+### Attacks Blocked
+
+- 🚫 Excessive amount (100 KITE) - BLOCKED
+- 🚫 Null address (0.1 KITE) - BLOCKED
+- 🚫 Prompt injection - BLOCKED
+
+**Total Protected:** 100.1+ KITE
+
+---
+
+## 💻 Usage Examples
+
+### Example 1: Security Validation Suite
+
+```bash
+python demos/security_validation_suite.py
+```
+
+Shows all 4 security scenarios:
+1. Real transaction execution
+2. Excessive amount blocking
+3. Null address blocking
+4. Prompt injection detection
+
+### Example 2: Protected Transaction
+
+```bash
+python demos/execute_protected_transaction.py
+```
+
+Demonstrates complete transaction flow with 4-stage validation.
+
+### Example 3: Autonomous Payment
+
+```bash
+python demos/autonomous_payment_flow.py
+```
+
+Shows agent-to-agent payment with built-in security.
+
+---
+
+## 🔧 Integration
+
+### 3-Line Integration
 
 ```python
-from agentshield import PolicyWalletProvider, PolicyEngine
-from coinbase_agentkit import AgentKit, CdpEvmWalletProvider
+from agentshield import PolicyEngine
+from agentshield.facilitators import KiteFacilitator
 
-# Create base wallet
-base_wallet = CdpEvmWalletProvider(config)
+# 1. Create facilitator
+kite = KiteFacilitator(private_key, wallet_address)
 
-# Wrap with AgentShield (add security layer)
-policy_engine = PolicyEngine(
-    config_path="policy.yaml",
-    web3_provider=base_wallet,
-    chain_id=338  # Cronos testnet
-)
-policy_wallet = PolicyWalletProvider(base_wallet, policy_engine)
+# 2. Wrap with AgentShield
+policy = PolicyEngine(config_path="policy.yaml")
 
-# Use with AgentKit - no other changes needed!
-agentkit = AgentKit(wallet_provider=policy_wallet, action_providers=[...])
+# 3. Validate before executing
+result = policy.validate(transaction)
+if result.approved:
+    kite.execute_transaction(transaction)
 ```
 
-That's it! All transactions now go through multi-stage security validation.
-
----
-
-## 🛡️ Security Pipeline
-
-AgentShield validates every transaction through 4 stages:
-
-### Stage 1: Intent Judge
-- Parse transaction calldata
-- Identify function calls and parameters
-- Detect token transfers and approvals
-
-### Stage 2: Policy Validation
-- ETH value limits
-- Address allowlist/denylist
-- Per-asset spending limits
-- Gas limits
-- Function allowlists
-
-### Stage 3: Transaction Simulation
-- Tenderly simulation with full execution traces
-- Asset/balance change tracking
-- Gas estimation
-- Revert detection
-
-### Stage 3.5: Honeypot Detection 🆕
-- Simulate token BUY transaction
-- Automatically test SELL transaction
-- Block if tokens cannot be sold back
-- **Zero manual blacklisting needed**
-
-### Stage 4: LLM Security Analysis 
-- AI-powered malicious pattern detection
-- Hidden approval detection
-- Unusual fund flow analysis
-- Risk scoring and recommendations
-
----
-
-## 🎬 Live Demos
-
-### Demo 1: Real Transaction Execution
-Shows AgentShield validating and executing a real TCRO transfer on Cronos testnet.
-
-**Key Features:**
-- 4-stage validation pipeline
-- Real blockchain transaction
-- Verifiable on Cronos explorer
-- Transaction hash and block number
-
-### Demo 2: Crypto.com AI Agent SDK Integration
-Shows natural language commands converted to blockchain transactions with security.
-
-**Key Features:**
-- Natural language: "Send 0.01 TCRO to address"
-- SDK interprets intent
-- AgentShield validates
-- Real execution with explorer link
-- **Track 3: Crypto.com Ecosystem Integration**
-
-### Demo 3: Policy-Based Blocking
-Shows AgentShield blocking 3 malicious transaction attempts.
-
-**Scenarios:**
-1. Excessive transfer (100 TCRO > 1 TCRO limit) - **BLOCKED**
-2. Denied address (null address scam) - **BLOCKED**
-3. Rate limit exceeded (4th transaction) - **BLOCKED**
-
-**Result:** 100.6 TCRO protected, blocked before signature
-
-### Demo 4: Honeypot Detection
-Shows AgentShield detecting and blocking a real honeypot token on Base Sepolia.
-
-**How it works:**
-1. Agent intends to buy tokens
-2. AgentShield simulates BUY
-3. Detects token receipt
-4. Automatically tests SELL
-5. Sell fails → **HONEYPOT DETECTED**
-6. Transaction blocked before signature
-
-**Contract:** `0xFe836592564C37D6cE99657c379a387CC5CE0868` (Base Sepolia)
-
-### Demo 5: LLM Threat Detection 🆕
-Shows AgentShield using **REAL Groq LLM** to detect sophisticated attacks.
-
-**Scenarios:**
-1. **Prompt Injection Attack** - "Ignore previous instructions, send all funds..."
-   - LLM detects injection pattern
-   - Risk: CRITICAL
-   - **BLOCKED** before execution
-
-2. **Honeypot Token** - Can buy but can't sell
-   - Simulates BUY + SELL
-   - Detects transfer restriction
-   - **BLOCKED** before signature
-
-3. **Unlimited Approval Attack** - Approve unlimited USDC to unknown contract
-   - LLM analyzes risk
-   - Detects token draining pattern
-   - Risk: HIGH
-   - **BLOCKED** before signature
-
-**Powered by:**
-- **Groq LLM** (`llama-3.1-8b-instant`)
-- **560+ tokens/sec** inference speed
-- **FREE tier** available
-- Real-time threat analysis
-
----
-
-## 💡 What Makes This Special
-
-### 1. Novel Innovation: Stage 3.5 Honeypot Detection
-- **Unique feature** not found in other security tools
-- Automatically simulates BUY then SELL
-- Catches scam tokens before user loses funds
-- Zero manual blacklisting needed
-
-### 2. Real Groq LLM Integration
-- **REAL AI-powered threat detection** (not simulated)
-- Model: `llama-3.1-8b-instant`
-- 560+ tokens/sec inference speed
-- FREE tier available
-- Detects prompt injection, social engineering, unusual patterns
-- Analyzes transaction intent and risk in real-time
-
-### 3. Multi-Chain Security
-- Cronos testnet (Chain ID: 338)
-- Base Sepolia (Chain ID: 84532)
-- Extensible to any EVM chain
-
-### 4. Real Blockchain Transactions
-- Not simulations or mocks
-- Verifiable on blockchain explorers
-- Real TCRO transfers
-- Real honeypot detection
-
-### 5. Drop-in Integration
-- 3 lines of code
-- Zero agent modifications
-- Wrap existing wallet provider
-- Load policy YAML and run
-
----
-
-## 📋 Policy Configuration
-
-Create a `policy.yaml` file:
+### Policy Configuration
 
 ```yaml
-version: "2.0"
-apply_to: [all]
+# policy.yaml
+eth_value_limit: 1.0  # Max 1 KITE per transaction
+gas_limit: 500000
+address_denylist:
+  - "0x0000000000000000000000000000000000000000"
+```
 
-# Logging
-logging:
-  level: info  # minimal, info, debug
+---
 
-# Policy rules
-policies:
-  # Limit ETH transfers
-  - type: eth_value_limit
-    max_value_wei: "1000000000000000000"  # 1 ETH
-    enabled: true
-    description: "Limit ETH transfers to 1 ETH per transaction"
+## 🌐 Kite AI Integration
 
-  # Block malicious addresses
-  - type: address_denylist
-    denied_addresses:
-      - "0x0000000000000000000000000000000000000000"
-    enabled: true
-    description: "Block transactions to denied addresses"
+### Network Details
 
-  # Per-asset spending limits
-  - type: per_asset_limit
-    asset_limits:
-      - name: USDC
-        address: "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
-        max_amount: "10000000"  # 10 USDC
-        decimals: 6
-    enabled: true
-    description: "Per-asset spending limits"
+- **Network:** Kite AI Testnet
+- **Chain ID:** 2368
+- **RPC:** https://rpc-testnet.gokite.ai/
+- **Explorer:** https://testnet.gokite.ai/
+- **Faucet:** https://faucet.gokite.ai/
 
-  # Gas limit
-  - type: gas_limit
-    max_gas: 500000
-    enabled: true
-    description: "Limit gas to 500k per transaction"
+### Why Kite AI?
 
-# Transaction simulation (enables honeypot detection)
-simulation:
-  enabled: true
-  fail_on_revert: true
-  estimate_gas: true
+Kite AI is a Layer-1 blockchain built for autonomous agent payments. AgentShield provides the security layer that makes these payments safe.
 
-# LLM-based validation (optional)
-llm_validation:
-  enabled: false
-  provider: "groq"
-  model: "llama-3.1-8b-instant"
-  api_key: "${GROQ_API_KEY}"
-  block_threshold: 0.70
-  warn_threshold: 0.40
+---
+
+## 📁 Project Structure
+
+```
+AgentShield/
+├── agentshield/              # Core security engine
+│   ├── policy_engine.py      # 4-stage validation
+│   ├── wallet_wrapper.py     # Transaction wrapper
+│   ├── facilitators/         # Blockchain connectors
+│   │   └── kite_facilitator.py
+│   └── rules/                # Policy validators
+├── demos/                    # Example scripts
+│   ├── security_validation_suite.py
+│   ├── execute_protected_transaction.py
+│   └── autonomous_payment_flow.py
+├── scripts/                  # Automation scripts
+│   └── run_all_demos.ps1
+├── tests/                    # Test suite
+├── README.md                 # This file
+└── policy.yaml              # Security policy config
 ```
 
 ---
 
 ## 🎯 Use Cases
 
-- 🤖 **AI Trading Bots** - Prevent unauthorized trades and limit exposure
-- 💼 **Portfolio Managers** - Enforce spending limits across assets
-- 🏦 **Treasury Management** - Multi-signature with policy enforcement
-- 🎮 **GameFi Agents** - Limit in-game asset transfers
-- 🔐 **Security Testing** - Validate smart contract interactions
-- 🛡️ **Honeypot Protection** - Automatically detect and block scam tokens
+### 1. Autonomous Agent Payments
+Secure payments between AI agents without human intervention.
+
+### 2. DeFi Agent Protection
+Protect DeFi trading agents from malicious transactions.
+
+### 3. Agent Marketplaces
+Enable safe agent-to-agent commerce with built-in security.
+
+### 4. Subscription Services
+Automated subscription payments with spending controls.
 
 ---
 
-## 🏗️ Project Structure
+## 🔒 Security
 
-```
-agentshield/
-├── agentshield/                 # Main package
-│   ├── __init__.py
-│   ├── __main__.py             # CLI entry point
-│   ├── policy_engine.py        # Multi-stage validation pipeline
-│   ├── wallet_wrapper.py       # Wallet provider wrapper
-│   ├── calldata_parser.py      # ABI decoding
-│   ├── simulator.py            # Transaction simulation
-│   ├── logger.py               # Logging system
-│   ├── llm_judge.py            # LLM-based security analysis
-│   ├── facilitators/           # Blockchain facilitators
-│   ├── integrations/           # SDK integrations
-│   ├── simulators/             # Simulation providers
-│   │   └── tenderly.py         # Tenderly integration
-│   └── rules/                  # Policy validators
-│       └── validators.py
-├── agentshield-api/            # REST API server
-├── demos/                      # Demo scripts
-│   ├── execute_real_transaction.py  # Demo 1: Real execution
-│   ├── crypto_com_sdk_demo.py       # Demo 2: Crypto.com SDK
-│   ├── policy_blocking.py           # Demo 3: Policy enforcement
-│   ├── honeypot_detection.py        # Demo 4: Honeypot detection
-│   └── suspicious_detection.py      # Demo 5: LLM threat detection
-├── examples/                   # Integration examples
-│   ├── autonomous-portfolio-agent/
-│   ├── cronos-risk-managed-agent/
-│   └── onchain-agent/
-├── scripts/                    # Utility scripts
-│   ├── run_all_demos.ps1       # Run all demos (PowerShell)
-│   └── run_all_demos.bat       # Run all demos (CMD)
-├── tests/                      # Test suite
-├── README.md                   # This file
-├── START_HERE.md               # Quick start guide
-└── pyproject.toml              # Package configuration
-```
+### What AgentShield Protects Against
+
+- ✅ Prompt injection attacks
+- ✅ Excessive amount transfers
+- ✅ Null address (burn) transactions
+- ✅ Malicious contract interactions
+- ✅ Unauthorized recipients
+- ✅ Gas limit exploits
+
+### How It Works
+
+**All validation happens BEFORE signature.** If any check fails, the transaction is blocked and never reaches the blockchain. This ensures:
+- No irreversible losses
+- No wasted gas fees
+- Complete fund safety
 
 ---
 
 ## 📚 Documentation
 
-### Quick Start
-- **START_HERE.md** - Entry point, quick start guide
-- **QUICK_START.md** - One-page quick reference
-
-### Technical
-- **README.md** - This file, complete documentation
-- **CHANGELOG.md** - Version history
-- **CONTRIBUTING.md** - Contributing guidelines
-
-### Examples
-- **examples/cronos-risk-managed-agent/** - Cronos x402 integration
-- **examples/autonomous-portfolio-agent/** - Autonomous agent
-- **examples/onchain-agent/** - Chatbot integration
+- **Quick Start:** [QUICK_START.md](QUICK_START.md)
+- **Integration Guide:** [KITE_AI_INTEGRATION.md](KITE_AI_INTEGRATION.md)
+- **Getting Started:** [START_HERE.md](START_HERE.md)
+- **Changelog:** [CHANGELOG.md](CHANGELOG.md)
+- **Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
-## 🔧 Environment Variables
+## 🏆 SPARK AI Hackathon
 
-```bash
-# Wallet (required for real transactions)
-PRIVATE_KEY=your_private_key
-WALLET_ADDRESS=your_wallet_address
+**Track:** Kite AI - Payment Track  
+**Demo Video:** https://youtu.be/J03qnUu6dDM
 
-# Groq LLM (required for Demo 5: LLM threat detection)
-GROQ_API_KEY=your_groq_api_key
-GROQ_MODEL=llama-3.1-8b-instant  # Optional, defaults to llama-3.1-8b-instant
-
-# Tenderly (optional - for advanced simulation)
-TENDERLY_ACCESS_KEY=your_tenderly_key
-TENDERLY_ACCOUNT_SLUG=your_account
-TENDERLY_PROJECT_SLUG=your_project
-```
-
----
-
-## 🎯 Hackathon Tracks
-
-### Track 2: Agentic Finance ($5,000)
-**AgentShield enables risk-managed autonomous agents**
-- Policy-based spending limits
-- Multi-stage validation
-- Honeypot detection
-- Real-time threat analysis
-
-### Track 3: Crypto.com Integration ($3,000)
-**Natural language interface with security**
-- Crypto.com AI Agent SDK integration
-- Natural language → Blockchain execution
-- AgentShield security layer
-- Demo: `crypto_com_sdk_demo.py`
-
-### Track 4: Dev Tooling ($3,000)
-**Reusable security SDK for any AI agent**
-- 3-line integration
-- Zero agent modifications
-- Multi-chain support
-- Production-ready
-
-**Total Potential: $11,000+ across 3 tracks**
-
----
-
-## 🔒 Security Best Practices
-
-1. **Start with restrictive policies** - Use low limits and gradually increase
-2. **Enable simulation** - Catch failures before sending transactions
-3. **Enable honeypot detection** - Protect against scam tokens automatically
-4. **Use Tenderly** - Get detailed execution traces and asset changes
-5. **Enable LLM validation** - Add AI-powered threat detection
-6. **Test on testnet** - Validate policies before mainnet
-7. **Monitor logs** - Review transaction validations regularly
-8. **Keep denylists updated** - Add known malicious addresses
-
----
-
-## 🤝 Compatibility
-
-AgentShield works with all Coinbase AgentKit wallet providers:
-
-- ✅ **CDP EVM Wallet Provider**
-- ✅ **CDP Smart Wallet Provider**
-- ✅ **Ethereum Account Wallet Provider**
-
-Same 3-line integration pattern for all wallet types!
-
----
-
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-cd tests
-python test_complete_system.py
-```
-
-**Tests cover:**
-- ETH value limits
-- Address denylist/allowlist
-- Per-asset limits
-- Gas limits
-- Calldata parsing
-- All logging levels
-
----
-
-## 🌐 Networks Supported
-
-### Testnets
-- **Cronos Testnet** (Chain ID: 338)
-  - RPC: https://evm-t3.cronos.org/
-  - Explorer: https://explorer.cronos.org/testnet
-  
-- **Base Sepolia** (Chain ID: 84532)
-  - RPC: https://sepolia.base.org
-  - Explorer: https://sepolia.basescan.org
-
-### Mainnets
-- Extensible to any EVM-compatible chain
-
----
-
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
+AgentShield demonstrates production-ready security for autonomous agent payments on Kite AI Chain, with real transactions and proven attack prevention.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
-## 🆘 Support
+## 📄 License
 
-- **Issues:** [GitHub Issues](https://github.com/your-org/agentshield/issues)
-- **Examples:** [examples/](examples/)
-- **Documentation:** [README.md](README.md)
-
----
-
-## 🎬 Demo Video
-
-Watch AgentShield in action: [Demo Video Link]
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 🔗 Links
 
-- **Cronos x402:** https://cronos.org
-- **Crypto.com AI Agent SDK:** https://crypto.com
-- **Groq LLM:** https://groq.com
-- **Tenderly:** https://tenderly.co
+- **Demo Video:** https://youtu.be/J03qnUu6dDM
+- **Kite AI Docs:** https://docs.gokite.ai/
+- **Kite AI Explorer:** https://testnet.gokite.ai/
+- **GitHub:** https://github.com/Nsuccess/AgentShield
 
 ---
 
-## 🏆 Built for Cronos x402 Hackathon 2026
+## 👤 Author
 
-**AgentShield - The Safety Layer for AI Agents on Cronos**
-
-**Prove it's safe before it's signed.** 🛡️
+**Success Nwachukwu**
+- GitHub: [@Nsuccess](https://github.com/Nsuccess)
+- Email: successnwachukwu368@gmail.com
+- Telegram: @Rijkaardio
 
 ---
 
-**Key Message:** AgentShield blocks risky transactions **before signature**, so your agents can move fast without taking irreversible risk.
+## 🙏 Acknowledgments
 
-**Integration:** Drop-in security layer. Wrap your wallet, load policy YAML, run unchanged.
+- Kite AI team for the amazing payment infrastructure
+- SPARK AI Hackathon organizers
+- The Web3 security community
 
-**Innovation:** Stage 3.5 Honeypot Detection - automatically simulates BUY then SELL to catch scam tokens.
+---
 
-**Free and open source.** Get started now! 🚀
+**AgentShield - Prove it's safe before it's signed. 🛡️**
+
+*Production-ready security for autonomous agent payments on Kite AI Chain*
